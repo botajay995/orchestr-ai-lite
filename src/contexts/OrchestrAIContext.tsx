@@ -31,6 +31,8 @@ interface OrchestrAIContextType {
   assignTasksAutomatically: () => void;
   reassignTask: (taskId: string, memberId: string | undefined) => void;
   toggleTaskCompletion: (taskId: string) => void;
+  setTeamMembers: (members: TeamMember[]) => void;
+  setTasks: (tasks: Task[]) => void;
 }
 
 const OrchestrAIContext = createContext<OrchestrAIContextType | undefined>(undefined);
@@ -252,6 +254,8 @@ export const OrchestrAIProvider = ({ children }: OrchestrAIProviderProps) => {
         assignTasksAutomatically,
         reassignTask,
         toggleTaskCompletion,
+        setTeamMembers,
+        setTasks,
       }}
     >
       {children}
